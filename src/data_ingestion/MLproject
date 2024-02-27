@@ -1,0 +1,21 @@
+name: data_ingestion
+
+entry_points:
+  main:
+    parameters:
+
+      output_artifact:
+        description: output data name in wandb
+        type: string
+
+      output_type:
+        description: type of output data
+        type: string
+
+      output_description:
+        description: description of the output data
+        type: string
+
+
+    command: >-
+        python data_ingestion.py   --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description} 

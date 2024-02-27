@@ -1,7 +1,27 @@
-# -*- coding: utf-8 -*-
-import click
+"""
+Stock Data Retrieval Script
+
+This script retrieves historical stock data for a specified stock using the yfinance library.
+
+Usage:
+    python stock_data_retrieval.py
+
+Author:
+    [Your Name]
+
+Requirements:
+    - Python 3.x
+    - yfinance library (install using `pip install yfinance`)
+
+Example:
+    $ python stock_data_retrieval.py
+
+Notes:
+    - This script requires an active internet connection to retrieve stock data from the Yahoo Finance API.
+    - Ensure that the provided stock name is valid and exists on the Yahoo Finance platform.
+
+"""
 import logging
-from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 
 
