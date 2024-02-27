@@ -7,6 +7,14 @@ entry_points:
         description: stock name to download its data
         type: string
 
+      start_date:
+        description: start date of historical data of stock
+        type: string
+
+      end_date:
+        description: end date of historical data of stock
+        type: string
+
       output_artifact:
         description: output data name in wandb
         type: string
@@ -21,4 +29,4 @@ entry_points:
 
 
     command: >-
-        python data_ingestion.py  --stock_name {stock_name}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description} 
+        python data_ingestion.py  --stock_name {stock_name}  --start_date {start_date}  --end_date {end_date}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description} 

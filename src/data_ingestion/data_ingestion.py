@@ -46,7 +46,7 @@ def get_stock_data_and_upload_to_wandb(args):
         logging.info("Downloading data for :" + args.stock_name + "stock" )
         
         # Retrieve stock data using yfinance
-        stock_data = yf.download(args.stock_name, start="2020-01-01", end="2024-01-01")
+        stock_data = yf.download(args.stock_name, start=args.start_date, end=args.end_date)
         
         # Check if data is retrieved successfully
         if stock_data.empty:
@@ -78,6 +78,20 @@ if __name__ == '__main__':
         "--stock_name", 
         type=str,
         help="stock name to download its data",
+        required=True
+    )
+    
+    parser.add_argument(
+        "--start_date", 
+        type=str,
+        help="start date of historical data of stock",
+        required=True
+    )
+    
+    parser.add_argument(
+        "--end_date", 
+        type=str,
+        help="end date of historical data of stock",
         required=True
     )
 

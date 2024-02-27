@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/5a9e371d07a04f46bb20e4abd477b72d/artifacts
+end_time: 1709039500175
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5a9e371d07a04f46bb20e4abd477b72d
+run_name: ambitious-ape-492
+run_uuid: 5a9e371d07a04f46bb20e4abd477b72d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709039470755
+status: 3
+tags: []
+user_id: nassar

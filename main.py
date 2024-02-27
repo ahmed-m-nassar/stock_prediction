@@ -39,7 +39,9 @@ def go(config: DictConfig):
                 env_manager="local",
                 parameters={
                     "stock_name": config["data_ingestion"]["stock_name"],
-                    "output_artifact": "stock_data.csv",
+                    "start_date": config["data_ingestion"]["start_date"],
+                    "end_date": config["data_ingestion"]["end_date"],
+                    "output_artifact": "stock_data",
                     "output_type": "raw_data",
                     "output_description": "Stock raw data"
                 },

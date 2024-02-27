@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/db1982e07e1f45bd9db9718004f23025/artifacts
+end_time: 1709040124364
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: db1982e07e1f45bd9db9718004f23025
+run_name: nebulous-horse-798
+run_uuid: db1982e07e1f45bd9db9718004f23025
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709040058831
+status: 3
+tags: []
+user_id: nassar
