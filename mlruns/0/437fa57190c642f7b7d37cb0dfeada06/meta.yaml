@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/437fa57190c642f7b7d37cb0dfeada06/artifacts
+end_time: 1709036731386
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 437fa57190c642f7b7d37cb0dfeada06
+run_name: magnificent-slug-291
+run_uuid: 437fa57190c642f7b7d37cb0dfeada06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709036674736
+status: 4
+tags: []
+user_id: nassar

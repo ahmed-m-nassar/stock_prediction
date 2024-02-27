@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/af389992f8d2412285603577697d64ed/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: af389992f8d2412285603577697d64ed
+run_name: salty-zebra-71
+run_uuid: af389992f8d2412285603577697d64ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709036729397
+status: 1
+tags: []
+user_id: nassar

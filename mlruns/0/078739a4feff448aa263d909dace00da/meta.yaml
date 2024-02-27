@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/078739a4feff448aa263d909dace00da/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 078739a4feff448aa263d909dace00da
+run_name: silent-hound-73
+run_uuid: 078739a4feff448aa263d909dace00da
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709035846090
+status: 1
+tags: []
+user_id: nassar

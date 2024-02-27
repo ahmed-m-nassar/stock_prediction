@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/b75f596cf30a432fac12e6bda6a33573/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b75f596cf30a432fac12e6bda6a33573
+run_name: serious-lynx-356
+run_uuid: b75f596cf30a432fac12e6bda6a33573
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709037083450
+status: 1
+tags: []
+user_id: nassar

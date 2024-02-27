@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/624961cf8bf64ecf9fad33b48c587a93/artifacts
+end_time: 1709036983102
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 624961cf8bf64ecf9fad33b48c587a93
+run_name: auspicious-crane-949
+run_uuid: 624961cf8bf64ecf9fad33b48c587a93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709036973864
+status: 4
+tags: []
+user_id: nassar

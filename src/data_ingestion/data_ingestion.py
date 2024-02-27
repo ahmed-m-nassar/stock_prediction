@@ -4,47 +4,104 @@ Stock Data Retrieval Script
 This script retrieves historical stock data for a specified stock using the yfinance library.
 
 Usage:
-    python stock_data_retrieval.py
+    python data_ingestion.py --stock_name <stock_name> --output_artifact <output_artifact> --output_type <output_type> --output_description <output_description>
 
 Author:
-    [Your Name]
+    Ahmed Nassar
 
-Requirements:
-    - Python 3.x
-    - yfinance library (install using `pip install yfinance`)
+Arguments:
+    - stock_name (str): The name or ticker symbol of the stock to retrieve data for.
+    - output_artifact (str): The name of the output data in Weights & Biases.
+    - output_type (str): The type of output data.
+    - output_description (str): Description of the output data.
 
 Example:
-    $ python stock_data_retrieval.py
+    $ python stock_data_retrieval.py --stock_name AAPL --output_artifact clean_stock_data --output_type cleaned_data --output_description "Data with outliers and null values removed"
 
 Notes:
     - This script requires an active internet connection to retrieve stock data from the Yahoo Finance API.
     - Ensure that the provided stock name is valid and exists on the Yahoo Finance platform.
 
 """
+
 import logging
-from dotenv import find_dotenv, load_dotenv
+import yfinance as yf
+import argparse
+import wandb
+import pandas as pd
 
-
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
+def get_stock_data_and_upload_to_wandb(args):
     """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
+    Retrieve historical stock data for the specified stock name and upload it to Weights & Biases.
 
+    Parameters:
+    - args (argparse.Namespace): An object containing the parsed command-line arguments.
+      It should have the following attributes:
+        - stock_name (str): The name or ticker symbol of the stock to retrieve data for.
+        - output_artifact (str): The name of the output data in Weights & Biases.
+        - output_type (str): The type of output data.
+        - output_description (str): Description of the output data.
+    """
+    try:
+        logging.info("Downloading data for :" + args.stock_name + "stock" )
+        
+        # Retrieve stock data using yfinance
+        stock_data = yf.download(args.stock_name, start="2020-01-01", end="2024-01-01")
+        
+        # Check if data is retrieved successfully
+        if stock_data.empty:
+            raise ValueError(f"No data available for the stock '{args.stock_name}'")
+        
+        # Save stock data
+        stock_data.to_csv(f"{args.output_artifact}.csv", index=True)
+        
+        # Upload data to Weights & Biases
+        logging.info("Uploading" + args.stock_name + "stock to wandb")
+        wandb.init( name=args.output_artifact, notes=args.output_description)
+        wandb.save(f"{args.output_artifact}.csv")
+        wandb.finish()
+        
+        print("Stock data saved and uploaded to Weights & Biases successfully!")
+    except Exception as e:
+        # Log and raise an error if data retrieval or upload fails
+        raise ValueError(f"Failed to retrieve or upload data for the stock '{args.stock_name}': {str(e)}")
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=logging.INFO, format=log_fmt)
+    
+    logging.info("Starting data_ingestion ...")
+    
+    parser = argparse.ArgumentParser()
 
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
+    parser.add_argument(
+        "--stock_name", 
+        type=str,
+        help="stock name to download its data",
+        required=True
+    )
 
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
+    parser.add_argument(
+        "--output_artifact", 
+        type=str,
+        help="output data name in wandb",
+        required=True
+    )
 
-    main()
+    parser.add_argument(
+        "--output_type", 
+        type=str,
+        help="type of output data",
+        required=True
+    )
+
+    parser.add_argument(
+        "--output_description", 
+        type=str,
+        help="data cleaning is applied to the input data",
+        required=True
+    )
+
+    args = parser.parse_args()
+
+    get_stock_data_and_upload_to_wandb(args)

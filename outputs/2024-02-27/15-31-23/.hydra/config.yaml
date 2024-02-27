@@ -1,0 +1,7 @@
+main:
+  project_name: stock_predictor
+  experiment_name: development
+  steps: all
+data_ingestion:
+  stock_name: AAPL
+  artifact_name: all

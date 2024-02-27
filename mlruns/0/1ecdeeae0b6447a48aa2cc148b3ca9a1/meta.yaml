@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/1ecdeeae0b6447a48aa2cc148b3ca9a1/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1ecdeeae0b6447a48aa2cc148b3ca9a1
+run_name: efficient-seal-469
+run_uuid: 1ecdeeae0b6447a48aa2cc148b3ca9a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709035891928
+status: 1
+tags: []
+user_id: nassar

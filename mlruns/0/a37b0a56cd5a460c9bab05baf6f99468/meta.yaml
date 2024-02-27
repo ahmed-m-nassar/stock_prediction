@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/a37b0a56cd5a460c9bab05baf6f99468/artifacts
+end_time: 1709039135995
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a37b0a56cd5a460c9bab05baf6f99468
+run_name: trusting-shoat-538
+run_uuid: a37b0a56cd5a460c9bab05baf6f99468
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709039080985
+status: 3
+tags: []
+user_id: nassar

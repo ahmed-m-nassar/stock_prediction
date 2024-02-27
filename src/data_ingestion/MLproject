@@ -3,6 +3,9 @@ name: data_ingestion
 entry_points:
   main:
     parameters:
+      stock_name:
+        description: stock name to download its data
+        type: string
 
       output_artifact:
         description: output data name in wandb
@@ -18,4 +21,4 @@ entry_points:
 
 
     command: >-
-        python data_ingestion.py   --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description} 
+        python data_ingestion.py  --stock_name {stock_name}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description} 

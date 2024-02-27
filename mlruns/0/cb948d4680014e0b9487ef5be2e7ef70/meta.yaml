@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/cb948d4680014e0b9487ef5be2e7ef70/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cb948d4680014e0b9487ef5be2e7ef70
+run_name: luminous-carp-340
+run_uuid: cb948d4680014e0b9487ef5be2e7ef70
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709036622369
+status: 1
+tags: []
+user_id: nassar
