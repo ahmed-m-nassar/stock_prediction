@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/97ecb0080ab6430b9ecebfe1cd10242c/artifacts
+end_time: 1709105221330
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 97ecb0080ab6430b9ecebfe1cd10242c
+run_name: skillful-duck-693
+run_uuid: 97ecb0080ab6430b9ecebfe1cd10242c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709105125028
+status: 3
+tags: []
+user_id: nassar

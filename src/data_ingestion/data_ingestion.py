@@ -1,7 +1,8 @@
 """
 Stock Data Retrieval Script
 
-This script retrieves historical stock data for a specified stock using the yfinance library.
+This script retrieves historical stock
+data for a specified stock using the yfinance library.
 
 Usage:
     python data_ingestion.py --stock_name <stock_name> --output_artifact <output_artifact> --output_type <output_type> --output_description <output_description>
@@ -28,7 +29,7 @@ import logging
 import yfinance as yf
 import argparse
 import wandb
-import pandas as pd
+
 
 def get_stock_data_and_upload_to_wandb(args):
     """
@@ -43,74 +44,79 @@ def get_stock_data_and_upload_to_wandb(args):
         - output_description (str): Description of the output data.
     """
     try:
-        logging.info("Downloading data for :" + args.stock_name + "stock" )
-        
+        logging.info("Downloading data for :" + args.stock_name + " stock")
+
         # Retrieve stock data using yfinance
         stock_data = yf.download(args.stock_name, start=args.start_date, end=args.end_date)
-        
+
         # Check if data is retrieved successfully
         if stock_data.empty:
-            raise ValueError(f"No data available for the stock '{args.stock_name}'")
-        
+            raise ValueError(f"""No data available
+                             for the stock '{args.stock_name}'""")
+
         # Save stock data
         stock_data.to_csv(f"{args.output_artifact}.csv", index=True)
-        
+
         # Upload data to Weights & Biases
-        logging.info("Uploading" + args.stock_name + "stock to wandb")
-        wandb.init( name=args.output_artifact, notes=args.output_description)
+        logging.info("Uploading " + args.stock_name + " stock to wandb")
+        wandb.init(name=args.output_artifact,
+                   notes=args.output_description)
         wandb.save(f"{args.output_artifact}.csv")
         wandb.finish()
-        
-        print("Stock data saved and uploaded to Weights & Biases successfully!")
+
+        print("""Stock data saved and uploaded
+              to Weights & Biases successfully!""")
     except Exception as e:
         # Log and raise an error if data retrieval or upload fails
-        raise ValueError(f"Failed to retrieve or upload data for the stock '{args.stock_name}': {str(e)}")
+        raise ValueError(f"""Failed to retrieve or upload
+                         data for the stock '{args.stock_name}': {str(e)}""")
+
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=logging.INFO, format=log_fmt)
-    
+
     logging.info("Starting data_ingestion ...")
-    
+
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        "--stock_name", 
+        "--stock_name",
         type=str,
         help="stock name to download its data",
         required=True
     )
-    
+
     parser.add_argument(
-        "--start_date", 
+        "--start_date",
         type=str,
         help="start date of historical data of stock",
         required=True
     )
-    
+
     parser.add_argument(
-        "--end_date", 
+        "--end_date",
         type=str,
         help="end date of historical data of stock",
         required=True
     )
 
     parser.add_argument(
-        "--output_artifact", 
+        "--output_artifact",
         type=str,
         help="output data name in wandb",
         required=True
     )
 
     parser.add_argument(
-        "--output_type", 
+        "--output_type",
         type=str,
         help="type of output data",
         required=True
     )
 
     parser.add_argument(
-        "--output_description", 
+        "--output_description",
         type=str,
         help="data cleaning is applied to the input data",
         required=True

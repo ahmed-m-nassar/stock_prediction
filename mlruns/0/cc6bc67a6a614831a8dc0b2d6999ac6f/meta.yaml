@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/cc6bc67a6a614831a8dc0b2d6999ac6f/artifacts
+end_time: 1709105220728
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cc6bc67a6a614831a8dc0b2d6999ac6f
+run_name: mysterious-stoat-370
+run_uuid: cc6bc67a6a614831a8dc0b2d6999ac6f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709105158690
+status: 3
+tags: []
+user_id: nassar
