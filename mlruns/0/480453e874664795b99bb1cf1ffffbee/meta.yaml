@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/480453e874664795b99bb1cf1ffffbee/artifacts
+end_time: 1709206158141
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 480453e874664795b99bb1cf1ffffbee
+run_name: thoughtful-newt-662
+run_uuid: 480453e874664795b99bb1cf1ffffbee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709206150105
+status: 4
+tags: []
+user_id: nassar

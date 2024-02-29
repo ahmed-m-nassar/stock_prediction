@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/633895b8f0b24033b2063de5f18d5195/artifacts
+end_time: 1709206158849
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 633895b8f0b24033b2063de5f18d5195
+run_name: caring-rat-6
+run_uuid: 633895b8f0b24033b2063de5f18d5195
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709206138925
+status: 4
+tags: []
+user_id: nassar

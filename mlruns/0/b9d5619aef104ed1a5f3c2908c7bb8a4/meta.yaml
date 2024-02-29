@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/b9d5619aef104ed1a5f3c2908c7bb8a4/artifacts
+end_time: 1709206271901
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b9d5619aef104ed1a5f3c2908c7bb8a4
+run_name: auspicious-flea-877
+run_uuid: b9d5619aef104ed1a5f3c2908c7bb8a4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709206226766
+status: 3
+tags: []
+user_id: nassar

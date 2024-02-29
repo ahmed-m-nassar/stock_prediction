@@ -18,15 +18,15 @@ Example:
     python executor.py
 
 """
-import mlflow
 import os
+import mlflow
 import hydra
 from omegaconf import DictConfig
 
 
 _steps = [
- #   "data_ingestion",
-    "data_cleaning",
+    "data_ingestion",
+ #   "data_cleaning",
 ]
 
 
