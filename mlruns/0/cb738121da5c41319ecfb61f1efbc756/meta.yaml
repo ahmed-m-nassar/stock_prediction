@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/cb738121da5c41319ecfb61f1efbc756/artifacts
+end_time: 1709121019816
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cb738121da5c41319ecfb61f1efbc756
+run_name: marvelous-ox-323
+run_uuid: cb738121da5c41319ecfb61f1efbc756
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709120986776
+status: 4
+tags: []
+user_id: nassar

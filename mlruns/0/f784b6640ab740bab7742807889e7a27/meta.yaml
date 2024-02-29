@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/f784b6640ab740bab7742807889e7a27/artifacts
+end_time: 1709194074190
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f784b6640ab740bab7742807889e7a27
+run_name: big-rat-987
+run_uuid: f784b6640ab740bab7742807889e7a27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709194036958
+status: 3
+tags: []
+user_id: nassar

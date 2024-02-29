@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/ef00ddf214c64037b416dfecfd2eb863/artifacts
+end_time: 1709130383173
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ef00ddf214c64037b416dfecfd2eb863
+run_name: gaudy-carp-727
+run_uuid: ef00ddf214c64037b416dfecfd2eb863
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709130332480
+status: 3
+tags: []
+user_id: nassar

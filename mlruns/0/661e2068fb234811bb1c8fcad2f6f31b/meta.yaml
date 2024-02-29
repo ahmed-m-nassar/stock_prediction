@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/661e2068fb234811bb1c8fcad2f6f31b/artifacts
+end_time: 1709130247964
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 661e2068fb234811bb1c8fcad2f6f31b
+run_name: nervous-fowl-835
+run_uuid: 661e2068fb234811bb1c8fcad2f6f31b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709130129733
+status: 4
+tags: []
+user_id: nassar

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/4e9763a5b4474b859b90343bd1f7a3ad/artifacts
+end_time: 1709116416428
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4e9763a5b4474b859b90343bd1f7a3ad
+run_name: fun-crab-997
+run_uuid: 4e9763a5b4474b859b90343bd1f7a3ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709116362747
+status: 3
+tags: []
+user_id: nassar

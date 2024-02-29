@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/01bb3bd50c5747d0a835d830032bf160/artifacts
+end_time: 1709194764483
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 01bb3bd50c5747d0a835d830032bf160
+run_name: rare-skunk-611
+run_uuid: 01bb3bd50c5747d0a835d830032bf160
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709194732628
+status: 3
+tags: []
+user_id: nassar

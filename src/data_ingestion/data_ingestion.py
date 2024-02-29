@@ -44,6 +44,7 @@ def get_stock_data_and_upload_to_wandb(args):
         - output_description (str): Description of the output data.
     """
     try:
+        run = wandb.init(job_type="data_ingestion")
         logging.info("Downloading data for :" + args.stock_name + " stock")
 
         # Retrieve stock data using yfinance
@@ -59,9 +60,17 @@ def get_stock_data_and_upload_to_wandb(args):
 
         # Upload data to Weights & Biases
         logging.info("Uploading " + args.stock_name + " stock to wandb")
-        wandb.init(name=args.output_artifact,
-                   notes=args.output_description)
-        wandb.save(f"{args.output_artifact}.csv")
+
+        wandb.init()
+
+        artifact = wandb.Artifact(
+                args.output_artifact,
+                type=args.output_type,
+                description=args.output_description,
+                )
+
+        artifact.add_file(f"{args.output_artifact}.csv")
+        run.log_artifact(artifact)
         wandb.finish()
 
         print("""Stock data saved and uploaded

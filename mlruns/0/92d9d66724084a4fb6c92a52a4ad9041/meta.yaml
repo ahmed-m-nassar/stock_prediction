@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/92d9d66724084a4fb6c92a52a4ad9041/artifacts
+end_time: 1709194073903
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 92d9d66724084a4fb6c92a52a4ad9041
+run_name: funny-wren-410
+run_uuid: 92d9d66724084a4fb6c92a52a4ad9041
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709194045715
+status: 3
+tags: []
+user_id: nassar

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/ac2d5c76338447f98f239694b46c07d2/artifacts
+end_time: 1709130247304
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ac2d5c76338447f98f239694b46c07d2
+run_name: thundering-skink-611
+run_uuid: ac2d5c76338447f98f239694b46c07d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709130194839
+status: 4
+tags: []
+user_id: nassar

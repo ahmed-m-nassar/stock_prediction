@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/a19d0a6f172e4d20a87715998ebef525/artifacts
+end_time: 1709194182452
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a19d0a6f172e4d20a87715998ebef525
+run_name: resilient-shark-637
+run_uuid: a19d0a6f172e4d20a87715998ebef525
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709194130132
+status: 3
+tags: []
+user_id: nassar

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/1a2c0d971ae64e67b48a9b085000e451/artifacts
+end_time: 1709195240304
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1a2c0d971ae64e67b48a9b085000e451
+run_name: indecisive-kite-332
+run_uuid: 1a2c0d971ae64e67b48a9b085000e451
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709195209507
+status: 3
+tags: []
+user_id: nassar

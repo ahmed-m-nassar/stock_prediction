@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/dfc5d92abe304d7098ddecfbe23e795c/artifacts
+end_time: 1709120752092
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dfc5d92abe304d7098ddecfbe23e795c
+run_name: charming-gnu-776
+run_uuid: dfc5d92abe304d7098ddecfbe23e795c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709120722528
+status: 4
+tags: []
+user_id: nassar

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/766e1ec46a144f3fb212e2a876be4dfd/artifacts
+end_time: 1709116416806
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 766e1ec46a144f3fb212e2a876be4dfd
+run_name: enchanting-hen-164
+run_uuid: 766e1ec46a144f3fb212e2a876be4dfd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709116350466
+status: 3
+tags: []
+user_id: nassar

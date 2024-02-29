@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/94cd69b0d7b54caca31facb9e1350065/artifacts
+end_time: 1709193448003
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 94cd69b0d7b54caca31facb9e1350065
+run_name: illustrious-gnu-246
+run_uuid: 94cd69b0d7b54caca31facb9e1350065
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709193385080
+status: 3
+tags: []
+user_id: nassar

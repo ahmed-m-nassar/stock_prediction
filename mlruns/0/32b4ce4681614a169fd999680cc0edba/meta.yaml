@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/32b4ce4681614a169fd999680cc0edba/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 32b4ce4681614a169fd999680cc0edba
+run_name: capable-cod-870
+run_uuid: 32b4ce4681614a169fd999680cc0edba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709193921472
+status: 1
+tags: []
+user_id: nassar

@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/847069f9a86146f39ec964707fdff89d/artifacts
+end_time: 1709121019264
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 847069f9a86146f39ec964707fdff89d
+run_name: shivering-mink-505
+run_uuid: 847069f9a86146f39ec964707fdff89d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709120993352
+status: 4
+tags: []
+user_id: nassar
