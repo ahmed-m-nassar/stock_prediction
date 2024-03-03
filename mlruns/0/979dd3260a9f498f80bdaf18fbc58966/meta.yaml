@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/979dd3260a9f498f80bdaf18fbc58966/artifacts
+end_time: 1709212253520
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 979dd3260a9f498f80bdaf18fbc58966
+run_name: aged-squirrel-39
+run_uuid: 979dd3260a9f498f80bdaf18fbc58966
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212253048
+status: 4
+tags: []
+user_id: nassar

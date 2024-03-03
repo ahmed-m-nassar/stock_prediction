@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/b8ce9913c27441e1b99295a40df57064/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b8ce9913c27441e1b99295a40df57064
+run_name: adventurous-grub-291
+run_uuid: b8ce9913c27441e1b99295a40df57064
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212228032
+status: 1
+tags: []
+user_id: nassar

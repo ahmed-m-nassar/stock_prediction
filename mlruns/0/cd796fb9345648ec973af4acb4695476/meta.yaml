@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/cd796fb9345648ec973af4acb4695476/artifacts
+end_time: 1709213551835
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cd796fb9345648ec973af4acb4695476
+run_name: rumbling-zebra-452
+run_uuid: cd796fb9345648ec973af4acb4695476
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709213515227
+status: 3
+tags: []
+user_id: nassar

@@ -25,8 +25,9 @@ from omegaconf import DictConfig
 
 
 _steps = [
-    "data_ingestion",
+  #  "data_ingestion",
  #   "data_cleaning",
+     "data_seggregation",
 ]
 
 
@@ -82,6 +83,26 @@ def go(config: DictConfig):
                 "output_artifact": "cleaned_data",
                 "output_type": "cleaned_data",
                 "output_description": "Stock data cleaned"
+            },
+        )
+        
+    if "data_seggregation" in active_steps:
+        # Download file and load in W&B
+        _ = mlflow.run(
+            os.path.join(hydra.utils.get_original_cwd(),
+                         "src",
+                         "data_seggregation"),
+            "main",
+            env_manager="local",
+            parameters={
+                "input_artifact": "cleaned_data:latest",
+                "train_val_pct": 0.85,
+                "train_val_output_artifact": "train_val_data",
+                "train_val_output_type": "train_val",
+                "train_val_output_description": "train_val data for training and validation",
+                "test_output_artifact": "test_data",
+                "test_output_type": "test",
+                "test_output_description": "test data"
             },
         )
 

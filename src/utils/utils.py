@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import wandb
 import logging
@@ -5,12 +6,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def read_data_from_wandb(run , artifact_name , download_path):
+
+def read_data_from_wandb(run, artifact_name, download_path):
     """
     Read ingested data from Weights & Biases.
 
     Parameters:
+        run (wandb.sdk.wandb_run.Run): The W&B run object.
         artifact_name (str): The name of the artifact containing the ingested data.
+        download_path (str): The path to download the artifact.
 
     Returns:
         pd.DataFrame: The DataFrame containing the ingested data.
@@ -18,9 +22,17 @@ def read_data_from_wandb(run , artifact_name , download_path):
     try:
         logger.info(f"Reading data from W&B artifact: {artifact_name}")
         artifact = run.use_artifact(artifact_name)
-        artifact_dir = artifact.download(root = download_path)
-        file_name = artifact_name.split(':')[0]
-        df = pd.read_csv(f"{artifact_dir}/{file_name}.csv")
+        file_name = artifact_name.split(':')[0] + '.csv'
+        artifact_path = os.path.join(download_path, file_name)
+        print(artifact_path)
+        # Check if file exists and delete it
+        if os.path.isfile(artifact_path):
+            os.remove(artifact_path)
+            logger.info(f"Deleted existing file: {artifact_path}")
+
+        artifact.download(root=download_path)
+        
+        df = pd.read_csv(artifact_path)
         logger.info("Data read successfully")
         return df
     except Exception as e:

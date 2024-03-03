@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/f597b269beea46509a7ead5721d233e9/artifacts
+end_time: 1709212519849
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f597b269beea46509a7ead5721d233e9
+run_name: selective-moose-503
+run_uuid: f597b269beea46509a7ead5721d233e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212493107
+status: 4
+tags: []
+user_id: nassar

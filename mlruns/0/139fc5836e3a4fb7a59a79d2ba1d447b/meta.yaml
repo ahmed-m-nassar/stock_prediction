@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/139fc5836e3a4fb7a59a79d2ba1d447b/artifacts
+end_time: 1709213178216
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 139fc5836e3a4fb7a59a79d2ba1d447b
+run_name: honorable-newt-864
+run_uuid: 139fc5836e3a4fb7a59a79d2ba1d447b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709213144530
+status: 3
+tags: []
+user_id: nassar

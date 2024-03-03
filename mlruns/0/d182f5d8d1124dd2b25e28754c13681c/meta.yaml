@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/d182f5d8d1124dd2b25e28754c13681c/artifacts
+end_time: 1709212822084
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d182f5d8d1124dd2b25e28754c13681c
+run_name: silent-auk-200
+run_uuid: d182f5d8d1124dd2b25e28754c13681c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212788269
+status: 4
+tags: []
+user_id: nassar

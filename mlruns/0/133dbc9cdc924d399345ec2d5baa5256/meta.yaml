@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/133dbc9cdc924d399345ec2d5baa5256/artifacts
+end_time: 1709212821561
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 133dbc9cdc924d399345ec2d5baa5256
+run_name: abrasive-roo-939
+run_uuid: 133dbc9cdc924d399345ec2d5baa5256
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212793159
+status: 4
+tags: []
+user_id: nassar

@@ -1,0 +1,13 @@
+main:
+  project_name: stock_predictor
+  experiment_name: development
+  steps: all
+data_ingestion:
+  stock_name: AAPL
+  artifact_name: all
+  start_date: '2020-01-01'
+  end_date: '2024-01-01'
+data_segregation:
+  train_pct: 0.7
+  val_pct: 0.15
+  test_pct: 0.15

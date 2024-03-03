@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/817e6a1d19b14b199f9329f01ba2953f/artifacts
+end_time: 1709213552035
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 817e6a1d19b14b199f9329f01ba2953f
+run_name: unequaled-finch-489
+run_uuid: 817e6a1d19b14b199f9329f01ba2953f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709213510113
+status: 3
+tags: []
+user_id: nassar

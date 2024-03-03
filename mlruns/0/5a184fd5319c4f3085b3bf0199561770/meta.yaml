@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/5a184fd5319c4f3085b3bf0199561770/artifacts
+end_time: 1709212327634
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5a184fd5319c4f3085b3bf0199561770
+run_name: resilient-snipe-238
+run_uuid: 5a184fd5319c4f3085b3bf0199561770
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212322885
+status: 4
+tags: []
+user_id: nassar

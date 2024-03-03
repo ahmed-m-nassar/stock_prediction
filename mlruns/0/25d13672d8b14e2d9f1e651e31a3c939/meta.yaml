@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/25d13672d8b14e2d9f1e651e31a3c939/artifacts
+end_time: 1709212328159
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 25d13672d8b14e2d9f1e651e31a3c939
+run_name: clean-ant-12
+run_uuid: 25d13672d8b14e2d9f1e651e31a3c939
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212317405
+status: 4
+tags: []
+user_id: nassar

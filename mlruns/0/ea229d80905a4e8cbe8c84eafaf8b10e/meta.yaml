@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/ea229d80905a4e8cbe8c84eafaf8b10e/artifacts
+end_time: 1709212433870
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ea229d80905a4e8cbe8c84eafaf8b10e
+run_name: loud-shrew-234
+run_uuid: ea229d80905a4e8cbe8c84eafaf8b10e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709212395439
+status: 4
+tags: []
+user_id: nassar

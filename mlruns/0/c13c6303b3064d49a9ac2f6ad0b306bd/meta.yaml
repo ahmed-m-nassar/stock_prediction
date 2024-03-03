@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/c13c6303b3064d49a9ac2f6ad0b306bd/artifacts
+end_time: 1709213451543
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c13c6303b3064d49a9ac2f6ad0b306bd
+run_name: colorful-crane-126
+run_uuid: c13c6303b3064d49a9ac2f6ad0b306bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709213418789
+status: 4
+tags: []
+user_id: nassar

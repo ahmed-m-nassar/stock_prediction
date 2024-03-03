@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/e/projects/stock_prices/stock_predictor/mlruns/0/6c144d9c36c3409687e6f709c5e216f0/artifacts
+end_time: 1709213178009
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6c144d9c36c3409687e6f709c5e216f0
+run_name: amazing-rat-142
+run_uuid: 6c144d9c36c3409687e6f709c5e216f0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1709213151623
+status: 3
+tags: []
+user_id: nassar
