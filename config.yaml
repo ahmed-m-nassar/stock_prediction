@@ -1,13 +1,48 @@
+
 main:
+  # Project name for the experiment
   project_name: stock_predictor
+  # Name of the experiment
   experiment_name: development
+  # Steps to execute (all steps in this case)
   steps: all
+
 data_ingestion:
+  # Stock name to download its data
   stock_name: AAPL
+  # Artifact name containing the ingested data
   artifact_name: all
-  start_date: 2020-01-01
+  # Start date of historical data of the stock
+  start_date: 2018-01-01
+  # End date of historical data of the stock
   end_date: 2024-01-01
+
 data_segregation:
-  train_pct: 0.7
-  val_pct: 0.15
+  # Percentage of data to use for training
+  train_val_pct: 0.85
+  # Percentage of data to use for testing
   test_pct: 0.15
+
+training:
+  # Fraction of data to use for Training (the remaining will be used for validation)
+  train_size: 0.8
+  # Random seed for reproducibility
+  random_seed: 42
+  # Hyperparameters for XGBoost classification model
+  xgboost_classification:
+    # Number of boosting rounds
+    n_estimators: 100
+    # Maximum depth of a tree
+    max_depth: 6
+    # Step size shrinkage used in update to prevent overfitting
+    learning_rate: 0.1
+    # Minimum sum of instance weight (hessian) needed in a child
+    min_child_weight: 1
+    # Subsample ratio of the training instances
+    subsample: 0.8
+    # Subsample ratio of columns when constructing each tree
+    colsample_bytree: 0.8
+    # Specifies the learning task and the corresponding learning objective (for binary classification tasks)
+    objective: binary:logistic
+    # Number of parallel threads used to run XGBoost
+    n_jobs: -1

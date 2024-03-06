@@ -24,7 +24,7 @@ def read_data_from_wandb(run, artifact_name, download_path):
         artifact = run.use_artifact(artifact_name)
         file_name = artifact_name.split(':')[0] + '.csv'
         artifact_path = os.path.join(download_path, file_name)
-        print(artifact_path)
+        print(artifact.name)
         # Check if file exists and delete it
         if os.path.isfile(artifact_path):
             os.remove(artifact_path)
@@ -39,7 +39,7 @@ def read_data_from_wandb(run, artifact_name, download_path):
         logger.error(f"Error occurred while reading data from W&B: {str(e)}")
         raise ValueError(f"Failed to read data from W&B artifact: {str(e)}")
 
-def upload_data_to_wandb(run , data_path , output_artifact, output_type, output_description):
+def upload_data_to_wandb(run , data_path , output_artifact, output_type, output_description , metadata=None ,file_flag = True):
     """
     Upload data to Weights & Biases.
 
@@ -56,9 +56,13 @@ def upload_data_to_wandb(run , data_path , output_artifact, output_type, output_
         output_artifact,
         type=output_type,
         description=output_description,
+        metadata=metadata
         )
-
-        artifact.add_file(data_path)
+        if file_flag :
+            artifact.add_file(data_path)
+        else : 
+            artifact.add_dir(data_path)
+            
         run.log_artifact(artifact)
         
         logger.info("Data uploaded successfully")

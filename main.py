@@ -22,17 +22,22 @@ import os
 import mlflow
 import hydra
 from omegaconf import DictConfig
+import json
+import uuid
 
 
 _steps = [
-  #  "data_ingestion",
- #   "data_cleaning",
-     "data_seggregation",
+#    "data_ingestion",
+#    "data_cleaning",
+#     "data_seggregation",
+    # "feature_engineering",
+    "training",
+     
 ]
 
 
 # This automatically reads in the configuration
-@hydra.main(config_name='config')
+@hydra.main(version_base= None , config_path='.' , config_name='config')
 def go(config: DictConfig):
     """
     Main function to execute the MLflow project.
@@ -64,7 +69,7 @@ def go(config: DictConfig):
                 "stock_name": config["data_ingestion"]["stock_name"],
                 "start_date": config["data_ingestion"]["start_date"],
                 "end_date": config["data_ingestion"]["end_date"],
-                "output_artifact": "stock_data",
+                "output_artifact": config["data_ingestion"]["stock_name"],
                 "output_type": "raw_data",
                 "output_description": "Stock raw data"
             },
@@ -79,7 +84,7 @@ def go(config: DictConfig):
             "main",
             env_manager="local",
             parameters={
-                "input_artifact": "stock_data:latest",
+                "input_artifact": config["data_ingestion"]["stock_name"]+":latest",
                 "output_artifact": "cleaned_data",
                 "output_type": "cleaned_data",
                 "output_description": "Stock data cleaned"
@@ -96,16 +101,56 @@ def go(config: DictConfig):
             env_manager="local",
             parameters={
                 "input_artifact": "cleaned_data:latest",
-                "train_val_pct": 0.85,
-                "train_val_output_artifact": "train_val_data",
+                "train_val_pct": config["data_segregation"]["train_val_pct"],
+                "train_val_output_artifact": "train_val",
                 "train_val_output_type": "train_val",
                 "train_val_output_description": "train_val data for training and validation",
-                "test_output_artifact": "test_data",
+                "test_output_artifact": "test",
                 "test_output_type": "test",
                 "test_output_description": "test data"
             },
         )
-
+        
+    if "feature_engineering" in active_steps:
+        # Extracts features for the model
+        _ = mlflow.run(
+            os.path.join(hydra.utils.get_original_cwd(),
+                         "src",
+                         "feature_engineering"),
+            "main",
+            env_manager="local",
+            parameters={
+                "output_artifact": "feature_engineering_pipeline",
+                "output_type": "pipeline",
+                "output_description": "pipeline for feature engineering"
+            },
+        )
+        
+    if "training" in active_steps:
+        # NOTE: we need to serialize the random forest configuration into JSON
+        unique_id = uuid.uuid4()
+        unique_filename = f"config_{unique_id}.json"
+        xgboost_config = os.path.abspath(unique_filename)
+        with open(xgboost_config, "w+") as fp:
+            json.dump(dict(config["training"]["xgboost_classification"].items()), fp)  
+        # NOTE: use the xgboost_config we just created as the xgboost_config parameter for the training
+        # Extracts features for the model
+        _ = mlflow.run(
+            os.path.join(hydra.utils.get_original_cwd(),
+                         "src",
+                         "training"),
+            "main",
+            env_manager="local",
+            parameters={
+                "input_data_artifact": "train_val:latest",
+                "input_feature_engineering_artifact": "feature_engineering_pipeline:latest",
+                "train_pct": config["training"]["train_size"],
+                "xgboost_config": xgboost_config,
+                "output_artifact": "trained_model",
+                "output_type": "trained_model",
+                "output_description": "model" 
+            },
+        )
 
 if __name__ == "__main__":
     go()

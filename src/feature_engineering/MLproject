@@ -1,0 +1,22 @@
+name: feature_engineering
+
+entry_points:
+  main:
+    parameters:
+
+      output_artifact:
+        description: output data name in wandb
+        type: string
+
+      output_type:
+        type: string
+
+      output_description:
+        description: description of the output data
+        type: string
+
+    command: >-
+        python feature_engineering.py \
+              --output_artifact {output_artifact} \
+              --output_type {output_type} \
+              --output_description {output_description} 
