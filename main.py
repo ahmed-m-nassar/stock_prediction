@@ -31,7 +31,8 @@ _steps = [
 #    "data_cleaning",
 #     "data_seggregation",
     # "feature_engineering",
-    "training",
+#    "training",
+   "prediction"
      
 ]
 
@@ -149,6 +150,23 @@ def go(config: DictConfig):
                 "output_artifact": "trained_model",
                 "output_type": "trained_model",
                 "output_description": "model" 
+            },
+        )
+        
+    if "prediction" in active_steps:
+        # Extracts features for the model
+        _ = mlflow.run(
+            os.path.join(hydra.utils.get_original_cwd(),
+                         "src",
+                         "prediction"),
+            "main",
+            env_manager="local",
+            parameters={
+                "input_data_artifact": "test:latest",
+                "input_pipeline_artifact": "trained_model:production",
+                "output_artifact": "prediction",
+                "output_type": "preds",
+                "output_description": "data predictions" 
             },
         )
 

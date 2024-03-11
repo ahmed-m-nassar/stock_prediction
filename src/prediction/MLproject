@@ -7,12 +7,8 @@ entry_points:
         description: input data name in wandb
         type: string
 
-      input_feature_engineering_artifact:
-        description: input pipeline name in wandb
-        type: string
-
-      input_model_artifact:
-        description: input model artifact
+      input_pipeline_artifact:
+        description: input full pipeline artifact
         type: string
 
       output_artifact:
@@ -28,10 +24,9 @@ entry_points:
         type: string
 
     command: >-
-        python train.py \
+        python predict.py \
               --input_data_artifact {input_data_artifact} \
-              --input_feature_engineering_artifact {input_feature_engineering_artifact} \
-              --input_model_artifact {input_model_artifact} \
+              --input_pipeline_artifact {input_pipeline_artifact} \
               --output_artifact {output_artifact} \
               --output_type {output_type} \
               --output_description {output_description} 

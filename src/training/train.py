@@ -10,6 +10,7 @@ import mlflow
 import uuid
 import pandas as pd
 from sklearn.pipeline import Pipeline
+from sklearn.base import BaseEstimator, TransformerMixin
 
 from sklearn.metrics import accuracy_score
 
@@ -18,6 +19,16 @@ sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
+class TransformerWrapper(BaseEstimator, TransformerMixin):
+    def __init__(self, transformer):
+        self.transformer = transformer
+    
+    def fit(self, X, y=None):
+        return self.transformer.fit(X, y)
+    
+    def transform(self, X):
+        return self.transformer.transform(X)
+    
 def parse_arguments():
     """
     Parse command-line arguments.
@@ -69,7 +80,7 @@ def transform_data(df , pipeline):
 
     return features_df
     
-    
+
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=logging.INFO, format=log_fmt)
@@ -120,7 +131,7 @@ if __name__ == '__main__':
     #Saving full pipeline
     # Create a pipeline with preprocessing and model
     full_pipeline = Pipeline([
-        ('feature_engineering', feature_engineering),
+        ('feature_engineering', TransformerWrapper(feature_engineering)),
         ('model', model)
     ])
     unique_id = uuid.uuid4()
@@ -130,7 +141,7 @@ if __name__ == '__main__':
                                                  f"config_{unique_id}")
     if os.path.exists(model_path):
         shutil.rmtree(model_path)
-    mlflow.sklearn.save_model(model,model_path )
+    mlflow.sklearn.save_model(full_pipeline,model_path )
 
     upload_data_to_wandb(run ,
                          model_path ,
