@@ -9,7 +9,6 @@ import xgboost as xgb
 import mlflow
 import uuid
 import pandas as pd
-from sklearn.pipeline import Pipeline
 
 from sklearn.metrics import accuracy_score
 
@@ -92,37 +91,32 @@ if __name__ == '__main__':
     df = read_data_from_wandb(run , args.input_data_artifact , download_data_path )
     
     #Downloading pipeline
-    download_feature_engineering_path = os.path.join(os.path.dirname(__file__),
+    download_pipeline_path = os.path.join(os.path.dirname(__file__),
                                                  "..",
                                                  "models" ,
                                                  "feature_engineering")
 
-    if os.path.exists(download_feature_engineering_path):
-        shutil.rmtree(download_feature_engineering_path)
+    if os.path.exists(download_pipeline_path):
+        shutil.rmtree(download_pipeline_path)
         
-    feature_engineering_export_path = run.use_artifact(args.input_feature_engineering_artifact).download(root=download_feature_engineering_path)
-    feature_engineering = mlflow.sklearn.load_model(feature_engineering_export_path)
+    pipeline_export_path = run.use_artifact(args.input_feature_engineering_artifact).download(root=download_pipeline_path)
+    pipeline = mlflow.sklearn.load_model(pipeline_export_path)
 
     #Splitting data
     train_df , val_df = split_data(df , args.train_pct)
 
     #Training
-    transformed_train_df = transform_data(train_df , feature_engineering)
+    transformed_train_df = transform_data(train_df , pipeline)
     model = train_xgboost(transformed_train_df, 'label' ,xgboost_config)
     
     #Evaluation
-    transformed_val_df = transform_data(val_df , feature_engineering)
+    transformed_val_df = transform_data(val_df , pipeline)
     y_pred = model.predict(transformed_val_df.drop(columns = ['label']))
     accuracy = accuracy_score(y_pred, transformed_val_df['label'])
     run.summary['accuracy'] = accuracy
     print("Accuracy:", accuracy)
     
-    #Saving full pipeline
-    # Create a pipeline with preprocessing and model
-    full_pipeline = Pipeline([
-        ('feature_engineering', feature_engineering),
-        ('model', model)
-    ])
+    #Saving model
     unique_id = uuid.uuid4()
     model_path = os.path.join(os.path.dirname(__file__),
                                                  "..",

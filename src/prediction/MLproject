@@ -1,0 +1,37 @@
+name: model_training
+
+entry_points:
+  main:
+    parameters:
+      input_data_artifact:
+        description: input data name in wandb
+        type: string
+
+      input_feature_engineering_artifact:
+        description: input pipeline name in wandb
+        type: string
+
+      input_model_artifact:
+        description: input model artifact
+        type: string
+
+      output_artifact:
+        description: output data name in wandb
+        type: string
+
+      output_type:
+        description: type of output data
+        type: string
+
+      output_description:
+        description: description of the output data
+        type: string
+
+    command: >-
+        python train.py \
+              --input_data_artifact {input_data_artifact} \
+              --input_feature_engineering_artifact {input_feature_engineering_artifact} \
+              --input_model_artifact {input_model_artifact} \
+              --output_artifact {output_artifact} \
+              --output_type {output_type} \
+              --output_description {output_description} 
