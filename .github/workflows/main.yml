@@ -24,7 +24,8 @@ jobs:
          activate-environment: stock_predictor
          environment-file: environment.yml
 
+    - name: Initialize Conda
+      run: conda init
+
     - name: Activate Conda environment
-      run: |
-            conda init
-            conda activate stock_predictor
+      run: conda activate stock_predictor
