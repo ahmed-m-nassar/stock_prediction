@@ -34,7 +34,7 @@ jobs:
          
     - name: activate conda
       run: |
-          conda init powershell
+          conda init bash
           conda activate stock_predictor
           conda info --envs
 
