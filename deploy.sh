@@ -14,4 +14,3 @@ conda activate stock_predictor
 
 conda info --envs
 
-streamlit run dashboard.py &
