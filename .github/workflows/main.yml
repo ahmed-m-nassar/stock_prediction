@@ -34,7 +34,7 @@ jobs:
          
     - name: activate conda
       run: |
-          $CONDA/bin/activate stock_predictor
+          conda activate stock_predictor
           conda info --envs
 
 
