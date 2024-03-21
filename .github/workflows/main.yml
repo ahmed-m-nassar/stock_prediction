@@ -13,6 +13,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Cache Conda package cache
+      uses: actions/cache@v2
+      with:
+        path: ~/.conda/pkgs
+        key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-conda-
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
