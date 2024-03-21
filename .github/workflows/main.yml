@@ -34,9 +34,10 @@ jobs:
          
     - name: activate conda
       run: |
-          $conda activate stock_predictor
+          $CONDA/bin/activate stock_predictor
+          conda info --envs
 
-            
+
     - name: run unit tests
       run: |
             pytest unit_tests/feature_engineering/test_feature_engineering.py
