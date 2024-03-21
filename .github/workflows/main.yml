@@ -32,9 +32,12 @@ jobs:
          activate-environment: stock_predictor
          environment-file: environment.yml
          
-
-    - name: run unit tests
+    - name: act
       run: |
             eval "$(conda shell.bash hook)"
             conda activate stock_predictor
+
+    - name: run unit tests
+      run: |
+            conda info --envs
             pytest unit_tests/feature_engineering/test_feature_engineering.py
