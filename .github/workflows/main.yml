@@ -34,7 +34,7 @@ jobs:
          
     - name: activate conda
       run: |
-          conda info --envs
+          $CONDA/bin/activate stock_predictor
 
             
     - name: run unit tests
