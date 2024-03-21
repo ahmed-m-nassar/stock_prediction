@@ -32,8 +32,6 @@ jobs:
          activate-environment: stock_predictor
          environment-file: environment.yml
 
-    - name: Initialize Conda
-      run: conda init
-
-    - name: Activate Conda environment
-      run: conda activate stock_predictor
+    - name: run unit tests
+      run: |
+            pytest unit_tests/feature_engineering/test_feature_engineering.py
