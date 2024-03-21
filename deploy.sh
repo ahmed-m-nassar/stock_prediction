@@ -11,3 +11,7 @@ conda env create -f environment.yml
 
 # Activate the Conda environment
 conda activate stock_predictor
+
+conda info --envs
+
+streamlit run dashboard.py
