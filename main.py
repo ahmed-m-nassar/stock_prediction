@@ -27,13 +27,13 @@ import uuid
 
 
 _steps = [
-#    "data_ingestion",
+    "data_ingestion",
 #    "data_cleaning",
 #     "data_seggregation",
     # "feature_engineering",
 #    "training",
-   "prediction"
-     
+  # "prediction" , 
+#    "save_prediction"
 ]
 
 
@@ -167,6 +167,22 @@ def go(config: DictConfig):
                 "output_artifact": "prediction",
                 "output_type": "preds",
                 "output_description": "data predictions" 
+            },
+        )
+        
+    if "save_prediction" in active_steps:
+        # Extracts features for the model
+        _ = mlflow.run(
+            os.path.join(hydra.utils.get_original_cwd(),
+                         "src",
+                         "save_prediction"),
+            "main",
+            env_manager="local",
+            parameters={
+                "input_data_artifact": "prediction:latest",
+                "used_model_artifact": "trained_model:production",
+                "database_url" : os.environ.get("DB_URL"),
+                "table_name": "stocks_predictions"
             },
         )
 

@@ -73,27 +73,6 @@ def parse_arguments():
     parser.add_argument("--output_type", type=str, help="Type of the output data artifact", required=True)
     parser.add_argument("--output_description", type=str, help="Description of the output data artifact", required=True)
     return parser.parse_args()
-
-
-
-
-# def extract_features(df):
-#     #Get RSI feature
-#     df['rsi_14'] = ta.rsi(df['close'], length=14)
-
-#     #Get adl features
-#     df['adl'] = (((df['close'] - df['close'].shift()) / (df['high'] - df['low'])) * df['volume']).fillna(0).cumsum()
-
-#     #Get OBV features
-#     df['obv']  = (df['close'].diff() > 0).astype(int) * df['volume'].diff().fillna(0).cumsum()
-    
-#     #Get MACD Features
-#     macd = ta.macd(df['close'])
-#     df['macd'] = macd.iloc[:, 0]  
-#     df['macd_hist'] = macd.iloc[:, 1]  
-#     df['macd_signal'] = macd.iloc[:, 2]  
-
-#     return df
     
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

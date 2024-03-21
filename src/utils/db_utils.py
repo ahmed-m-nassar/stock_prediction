@@ -95,37 +95,27 @@ def update_data(connection, table_name, set_clause, where_clause=None):
             logging.info("Cursor closed.")
 
 def select_data(connection, table_name, columns="*", where_clause=None):
-    """
-    Retrieves data from a table based on specified criteria.
-
-    Parameters:
-    - connection (psycopg2 connection): The connection to the PostgreSQL database.
-    - table_name (str): The name of the table to retrieve data from.
-    - columns (str or list, optional): The columns to retrieve data from. Default is "*" (all columns).
-    - where_clause (str, optional): The WHERE clause to filter rows. Default is None.
-
-    Returns:
-    - list of tuples: The retrieved data from the table.
-    """
+    cursor = None  # Define cursor variable and initialize it to None
     try:
         cursor = connection.cursor()
+        # Initialize the query with SELECT statement
         select_query = sql.SQL("SELECT {} FROM {}").format(
             sql.SQL(', ').join(map(sql.Identifier, columns)) if columns != "*" else sql.SQL('*'),
             sql.Identifier(table_name)
         )
+        # If where_clause is provided, add WHERE clause to the query
         if where_clause:
-            select_query += sql.SQL(" WHERE {}").format(where_clause)
+            # Compose the WHERE clause as a SQL expression
+            where_expr = sql.SQL(where_clause)
+            select_query += sql.SQL(" WHERE {}").format(where_expr)
         cursor.execute(select_query)
         rows = cursor.fetchall()
-        logging.info("Data retrieved from table %s.", table_name)
         return rows
     except psycopg2.Error as e:
-        logging.error("Error retrieving data from table %s: %s", table_name, e)
         return None
     finally:
         if cursor:
             cursor.close()
-            logging.info("Cursor closed.")
 
 def close_connection(connection):
     """

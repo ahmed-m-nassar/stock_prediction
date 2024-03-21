@@ -60,14 +60,14 @@ if __name__ == '__main__':
                                                  "full_pipeline")
     if os.path.exists(download_pipeline_path):
             shutil.rmtree(download_pipeline_path)
-    pipeline_export_path = run.use_artifact(args.input_pipeline_artifact).download(root=download_pipeline_path)
+    model_artifact = run.use_artifact(args.input_pipeline_artifact)
+    pipeline_export_path = model_artifact.download(root=download_pipeline_path)
     pipeline = mlflow.sklearn.load_model(pipeline_export_path)
 
    
     #prediction
     y_pred = pipeline.predict(df)
     df['prediction'] = y_pred    
-    logging.info(df.head())
     
     #Saving data
     data_path = os.path.join(os.path.dirname(__file__),

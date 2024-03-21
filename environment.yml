@@ -14,7 +14,10 @@ dependencies:
   - jupyterlab=4.0.9
   - pytest=7.4.0
   - yfinance=0.2.37
+  - psycopg2=2.9.9
+  - streamlit=1.32.1
   - pip=23.3.1
   - pip:
       - wandb==0.16.0
       - hydra-joblib-launcher==1.2.0
+      - apache-airflow[postgres,celery]==2.8.3

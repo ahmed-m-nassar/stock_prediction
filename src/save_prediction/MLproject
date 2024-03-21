@@ -1,0 +1,27 @@
+name: save_prediction
+
+entry_points:
+  main:
+    parameters:
+      input_data_artifact:
+        description: input data name in wandb
+        type: string
+
+      used_model_artifact:
+        description: used model artifact
+        type: string
+
+      database_url:
+        description: database url
+        type: string
+
+      table_name:
+        description: table name to save the record
+        type: string
+
+    command: >-
+        python save_prediction.py \
+              --input_data_artifact {input_data_artifact} \
+              --used_model_artifact {used_model_artifact} \
+              --database_url {database_url} \
+              --table_name {table_name} 

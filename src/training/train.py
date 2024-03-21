@@ -142,7 +142,7 @@ if __name__ == '__main__':
     if os.path.exists(model_path):
         shutil.rmtree(model_path)
     mlflow.sklearn.save_model(full_pipeline,model_path )
-
+    
     upload_data_to_wandb(run ,
                          model_path ,
                          args.output_artifact,

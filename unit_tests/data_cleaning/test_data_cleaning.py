@@ -45,7 +45,7 @@ def test_clean_data_column_names(sample_data_column_names):
     assert cleaned_data.columns.tolist() == expected_columns
     
 def test_clean_data(sample_data):
-    # Test case 1: Ensure data cleaning is applied successfully
+    # Ensure data cleaning is applied successfully
     index = pd.date_range(start='2024-01-01', periods=5, freq='D')
     expected_output = {
         'open': [3.0, 3.0, 3.0, 4.0, 5.0],
@@ -60,6 +60,4 @@ def test_clean_data(sample_data):
     print(cleaned_data)
     pd.testing.assert_frame_equal(cleaned_data, expected_output)
 
-    # Add more test cases as needed
 
-# You can add more test cases here
