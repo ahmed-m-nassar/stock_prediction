@@ -35,6 +35,6 @@ jobs:
 
     - name: run unit tests
       run: |
-            Run eval "$(conda shell.bash hook)"
+            eval "$(conda shell.bash hook)"
             conda activate stock_predictor
             pytest unit_tests/feature_engineering/test_feature_engineering.py
