@@ -34,7 +34,7 @@ jobs:
          
     - name: activate conda
       run: |
-          conda env list
+          conda info --envs
 
             
     - name: run unit tests
