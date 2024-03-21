@@ -1,0 +1,41 @@
+name: Run pytest on push
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your main branch name
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Cache Conda package cache
+      uses: actions/cache@v2
+      with:
+        path: ~/.conda/pkgs
+        key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-conda-
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'  # Adjust to your Python version
+      
+    - name: Set up Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+         activate-environment: stock_predictor
+         environment-file: environment.yml
+         
+    - name: run unit tests
+      run: |
+            eval "$(conda shell.bash hook)"
+            conda activate stock_predictor
+            conda info --envs
+            pytest unit_tests/**/*.py
+            
