@@ -84,42 +84,6 @@ def download_stock_data(stock_name, start_date, end_date, output_path):
 
     logging.info(f"Stock data downloaded and saved to {output_path}")
 
-def get_stock_data_and_upload_to_wandb(args):
-    """
-    Retrieve historical stock data for the specified stock name and upload it to Weights & Biases.
-
-    Parameters:
-    - args (argparse.Namespace): An object containing the parsed command-line arguments.
-      It should have the following attributes:
-        - stock_name (str): The name or ticker symbol of the stock to retrieve data for.
-        - output_artifact (str): The name of the output data in Weights & Biases.
-        - output_type (str): The type of output data.
-        - output_description (str): Description of the output data.
-    """
-    try:
-
-        # Upload data to Weights & Biases
-        logging.info("Uploading " + args.stock_name + " stock to wandb")
-
-        wandb.init()
-
-        artifact = wandb.Artifact(
-                args.output_artifact,
-                type=args.output_type,
-                description=args.output_description,
-                )
-
-        artifact.add_file(f"{args.output_artifact}.csv")
-        run.log_artifact(artifact)
-        wandb.finish()
-
-        print("""Stock data saved and uploaded
-              to Weights & Biases successfully!""")
-    except Exception as e:
-        # Log and raise an error if data retrieval or upload fails
-        raise ValueError(f"""Failed to retrieve or upload
-                         data for the stock '{args.stock_name}': {str(e)}""")
-
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
