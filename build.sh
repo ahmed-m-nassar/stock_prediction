@@ -19,7 +19,7 @@ source $HOME/miniconda/etc/profile.d/conda.sh;
 if ! conda env list | grep -q "stock_predictor"; then
     # Create Conda environment from environment.yml
     echo ">>>>>>>>>>>>>>> HERE"
-    conda env create -f environment.yml
+    conda env create -f environment_test.yml
 fi;
 
 # # Activate the Conda environment

@@ -1,0 +1,10 @@
+name: stock_predictor
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas=2.1.4
+  - pip=23.3.1
+  - pip:
+      - wandb==0.16.0
