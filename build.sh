@@ -11,10 +11,7 @@ fi;
 # Add Miniconda binaries to PATH
 # export PATH="$HOME/miniconda/bin:$PATH";
 echo PATH="\$HOME/miniconda/bin:\$PATH" >> ~/.bashrc
-cat ~/.bashrc
-echo ">>>>>>>>>>>>>>>>>>>>>>>>>>> HERE"
-whoami
-#source /root/.bashrc
+source ~/.bashrc
 # Activate Conda environment
 source $HOME/miniconda/etc/profile.d/conda.sh;
 

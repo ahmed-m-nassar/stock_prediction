@@ -16,5 +16,7 @@
 # search_miniconda
 # source $HOME/miniconda/bin/activate
 # eval "$(conda shell.bash hook)"
+echo ">>>>>>>>>>>>>>> HERE"
+whoami
 conda activate stock_predictor
 streamlit run dashboard.py
