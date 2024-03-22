@@ -22,6 +22,7 @@ if ! conda env list | grep -q "stock_predictor"; then
     conda env create -f environment_test.yml
 fi;
 
+conda info --envs
 # # Activate the Conda environment
 # conda activate stock_predictor;
 
