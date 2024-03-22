@@ -15,11 +15,12 @@ source ~/.bashrc
 # Activate Conda environment
 source $HOME/miniconda/etc/profile.d/conda.sh;
 
-# # Check if Conda environment exists, create if not
-# if ! conda env list | grep -q "stock_predictor"; then
-#     # Create Conda environment from environment.yml
-#     conda env create -f environment.yml
-# fi;
+# Check if Conda environment exists, create if not
+if ! conda env list | grep -q "stock_predictor"; then
+    # Create Conda environment from environment.yml
+    echo ">>>>>>>>>>>>>>> HERE"
+    conda env create -f environment.yml
+fi;
 
 # # Activate the Conda environment
 # conda activate stock_predictor;
