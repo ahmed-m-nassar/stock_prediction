@@ -24,6 +24,3 @@ conda activate stock_predictor
 
 # Verify Conda environment
 conda info --envs
-
-# Run the Streamlit app
-streamlit run dashboard.py
