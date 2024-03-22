@@ -14,7 +14,7 @@
 
 # # Execute the function to search for Miniconda
 # search_miniconda
-source $HOME/miniconda/bin/activate
-eval "$(conda shell.bash hook)"
+# source $HOME/miniconda/bin/activate
+# eval "$(conda shell.bash hook)"
 conda activate stock_predictor
 streamlit run dashboard.py
