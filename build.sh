@@ -1,19 +1,12 @@
 #!/bin/bash
 
-# Check if Miniconda is already installed
-if [ ! -d "$HOME/miniconda" ]; then
-    # Install Miniconda
-    echo ""
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-    bash miniconda.sh -b -p $HOME/miniconda
-fi;
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
 
-# Add Miniconda binaries to PATH
-# export PATH="$HOME/miniconda/bin:$PATH";
-echo PATH="\$HOME/miniconda/bin:\$PATH" >> ~/.bashrc
-source ~/.bashrc
-# Activate Conda environment
-source $HOME/miniconda/etc/profile.d/conda.sh;
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+conda --version
 
 # Check if Conda environment exists, create if not
 if ! conda env list | grep -q "stock_predictor"; then
