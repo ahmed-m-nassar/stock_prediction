@@ -20,7 +20,7 @@ conda --version
 if ! conda env list | grep -q "stock_predictor"; then
     # Create Conda environment from environment.yml
     echo ">>>>>>>>>>>>>>> HERE"
-    conda env create -f environment_test.yml
+    conda env create -f environment.yml
 fi;
 
 conda info --envs
