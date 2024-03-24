@@ -25,7 +25,7 @@ fi;
 
 conda info --envs
 # # Activate the Conda environment
-# conda activate stock_predictor;
+conda activate stock_predictor;
 
 # # # Verify Conda environment
 # # conda info --envs
