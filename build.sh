@@ -5,10 +5,15 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 
-~/miniconda3/bin/conda init bash
-~/miniconda3/bin/conda init zsh
+# Add the conda binary directory to PATH
+export PATH=~/miniconda3/bin:$PATH
+
+# Source the shell initialization scripts to ensure PATH changes take effect
+source ~/.bashrc
+source ~/.zshrc
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+# Now the conda command should be available
 conda --version
 
 # Check if Conda environment exists, create if not
