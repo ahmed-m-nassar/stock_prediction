@@ -50,6 +50,9 @@ sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
+
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(filename='train.log', level=logging.INFO, format=log_fmt)
 class TransformerWrapper(BaseEstimator, TransformerMixin):
     def __init__(self, transformer):
         self.transformer = transformer
@@ -158,8 +161,7 @@ def transform_data(df, pipeline):
         return None
 
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='train.log', level=logging.INFO, format=log_fmt)
+    
 
     try:
         logging.info("Starting training ...")

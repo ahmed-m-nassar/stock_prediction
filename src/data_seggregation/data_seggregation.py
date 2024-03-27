@@ -57,7 +57,8 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')
 sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
-
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(file_name='data_seggregation.log' ,level=logging.INFO, format=log_fmt)
 def parse_arguments():
     """
     Parse command-line arguments.
@@ -106,8 +107,7 @@ def segregate_data(df, split_pct):
         raise ValueError(f"Failed to seggregate data")
 
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(file_name='data_seggregation.log' ,level=logging.INFO, format=log_fmt)
+    
 
     logging.info("Starting data_seggregation ...")
     args = parse_arguments()

@@ -33,6 +33,8 @@ sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(file_name='data_cleaning.log' ,level=logging.INFO, format=log_fmt)
 
 def parse_arguments():
     """
@@ -78,8 +80,7 @@ def clean_data(df):
 
 if __name__ == "__main__":
     try:
-        log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        logging.basicConfig(file_name='data_cleaning.log' ,level=logging.INFO, format=log_fmt)
+        
         run = wandb.init()
         
         # Parse command-line arguments

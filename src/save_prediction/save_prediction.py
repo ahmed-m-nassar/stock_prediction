@@ -39,6 +39,8 @@ sys.path.insert(0, parent_dir)
 from src.utils.utils import read_data_from_wandb
 from src.utils.db_utils import connect_to_database , insert_df , close_connection
 
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(filename='save_prediction.log', level=logging.INFO, format=log_fmt)
 def parse_arguments():
     """
     Parse command-line arguments.
@@ -57,8 +59,7 @@ def parse_arguments():
     
     
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='save_prediction.log', level=logging.INFO, format=log_fmt)
+    
 
     logging.info("Starting prediction ...")
     args = parse_arguments()

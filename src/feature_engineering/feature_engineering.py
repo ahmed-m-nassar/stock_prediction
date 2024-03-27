@@ -39,7 +39,8 @@ sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
-
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(file_name='feature_engineering.log' ,level=logging.INFO, format=log_fmt)
 class RSIFeatureExtractor(BaseEstimator, TransformerMixin):
     """
     Custom transformer to extract the Relative Strength Index (RSI) feature from input DataFrame.
@@ -233,8 +234,7 @@ def parse_arguments():
     return parser.parse_args()
     
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(file_name='feature_engineering.log' ,level=logging.INFO, format=log_fmt)
+    
 
     logging.info("Saving feature engineering pipeline ...")
     args = parse_arguments()

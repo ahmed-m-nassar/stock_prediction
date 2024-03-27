@@ -43,6 +43,8 @@ sys.path.insert(0, parent_dir)
 
 from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
+log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+logging.basicConfig(filename='predict.log', level=logging.INFO, format=log_fmt)
 
 def parse_arguments():
     """
@@ -63,8 +65,7 @@ def parse_arguments():
     
     
 if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='predict.log', level=logging.INFO, format=log_fmt)
+    
 
     logging.info("Starting prediction ...")
     args = parse_arguments()
