@@ -92,7 +92,7 @@ def download_stock_data(stock_name, start_date, end_date, output_path):
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+    logging.basicConfig(file_name='data_ingestion.log' ,level=logging.INFO, format=log_fmt)
 
     logging.info("Starting data_ingestion ...")
     args = parse_arguments()
@@ -103,7 +103,7 @@ if __name__ == '__main__':
                                      "artifacts" ,
                                      "data_ingestion",
                                      args.stock_name + '.csv')
-                                     
+
     download_stock_data(args.stock_name,
                         args.start_date,
                         args.end_date,
