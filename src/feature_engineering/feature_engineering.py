@@ -1,3 +1,26 @@
+"""
+feature_engineering_pipeline.py
+
+This script defines a feature engineering pipeline using scikit-learn's Pipeline and custom feature extractor transformers. The pipeline extracts various technical analysis features such as RSI, ADL, OBV, and MACD from input data.
+
+Usage:
+    python feature_engineering.py --output_artifact <output_data_name> --output_type <output_data_type>
+                                           --output_description <output_data_description>
+
+Arguments:
+    --output_artifact (str): Name of the artifact for the extracted data to be saved in Weights & Biases (wandb).
+    --output_type (str): Type of the output data artifact.
+    --output_description (str): Description of the output data artifact.
+
+Execution:
+    - The script should be executed with required command-line arguments.
+    - It initializes a wandb run to log the pipeline.
+    - Constructs a feature engineering pipeline using scikit-learn's Pipeline and custom transformers.
+    - Saves the constructed pipeline using MLflow.
+    - Uploads the saved pipeline to Weights & Biases (wandb) with specified artifact name, type, and description.
+
+"""
+
 import sys
 import os
 import logging
@@ -18,42 +41,177 @@ from src.utils.utils import read_data_from_wandb,upload_data_to_wandb
 
 
 class RSIFeatureExtractor(BaseEstimator, TransformerMixin):
+    """
+    Custom transformer to extract the Relative Strength Index (RSI) feature from input DataFrame.
+
+    Attributes:
+        None
+
+    Methods:
+        fit(self, X, y=None): Fit method required for scikit-learn transformers.
+        transform(self, X): Transform method to extract RSI feature from input DataFrame.
+
+    """
+
     def fit(self, X, y=None):
+        """
+        Fit method required for scikit-learn transformers.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+            y (array-like): Target values (unused).
+
+        Returns:
+            self: Returns the instance itself.
+
+        """
         return self
 
     def transform(self, X):
+        """
+        Transform method to extract RSI feature from input DataFrame.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+
+        Returns:
+            pandas.DataFrame: DataFrame containing the RSI feature.
+
+        """
         df = X.copy()
         # Get RSI feature
         df['rsi_14'] = ta.rsi(df['close'], length=14)
         return df[['rsi_14']]
 
+
 class ADLFeatureExtractor(BaseEstimator, TransformerMixin):
+    """
+    Custom transformer to extract the Accumulation Distribution Line (ADL) feature from input DataFrame.
+
+    Attributes:
+        None
+
+    Methods:
+        fit(self, X, y=None): Fit method required for scikit-learn transformers.
+        transform(self, X): Transform method to extract ADL feature from input DataFrame.
+
+    """
+
     def fit(self, X, y=None):
+        """
+        Fit method required for scikit-learn transformers.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+            y (array-like): Target values (unused).
+
+        Returns:
+            self: Returns the instance itself.
+
+        """
         return self
 
     def transform(self, X):
+        """
+        Transform method to extract ADL feature from input DataFrame.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+
+        Returns:
+            pandas.DataFrame: DataFrame containing the ADL feature.
+
+        """
         df = X.copy()
-        # Get adl features
+        # Get ADL feature
         df['adl'] = (((df['close'] - df['close'].shift()) / (df['high'] - df['low'])) * df['volume']).fillna(0).cumsum()
         return df[['adl']]
 
+
 class OBVFeatureExtractor(BaseEstimator, TransformerMixin):
+    """
+    Custom transformer to extract the On-Balance Volume (OBV) feature from input DataFrame.
+
+    Attributes:
+        None
+
+    Methods:
+        fit(self, X, y=None): Fit method required for scikit-learn transformers.
+        transform(self, X): Transform method to extract OBV feature from input DataFrame.
+
+    """
+
     def fit(self, X, y=None):
+        """
+        Fit method required for scikit-learn transformers.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+            y (array-like): Target values (unused).
+
+        Returns:
+            self: Returns the instance itself.
+
+        """
         return self
 
     def transform(self, X):
+        """
+        Transform method to extract OBV feature from input DataFrame.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+
+        Returns:
+            pandas.DataFrame: DataFrame containing the OBV feature.
+
+        """
         df = X.copy()
-        # Get OBV features
+        # Get OBV feature
         df['obv'] = (df['close'].diff() > 0).astype(int) * df['volume'].diff().fillna(0).cumsum()
         return df[['obv']]
 
+
 class MACDFeatureExtractor(BaseEstimator, TransformerMixin):
+    """
+    Custom transformer to extract the Moving Average Convergence Divergence (MACD) features from input DataFrame.
+
+    Attributes:
+        None
+
+    Methods:
+        fit(self, X, y=None): Fit method required for scikit-learn transformers.
+        transform(self, X): Transform method to extract MACD features from input DataFrame.
+
+    """
+
     def fit(self, X, y=None):
+        """
+        Fit method required for scikit-learn transformers.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+            y (array-like): Target values (unused).
+
+        Returns:
+            self: Returns the instance itself.
+
+        """
         return self
 
     def transform(self, X):
+        """
+        Transform method to extract MACD features from input DataFrame.
+
+        Parameters:
+            X (pandas.DataFrame): Input DataFrame containing the data.
+
+        Returns:
+            pandas.DataFrame: DataFrame containing the MACD features.
+
+        """
         df = X.copy()
-        # Get MACD Features
+        # Get MACD features
         macd = ta.macd(df['close'])
         df['macd'] = macd.iloc[:, 0]
         df['macd_hist'] = macd.iloc[:, 1]
@@ -76,7 +234,7 @@ def parse_arguments():
     
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+    logging.basicConfig(file_name='feature_engineering.log' ,level=logging.INFO, format=log_fmt)
 
     logging.info("Saving feature engineering pipeline ...")
     args = parse_arguments()

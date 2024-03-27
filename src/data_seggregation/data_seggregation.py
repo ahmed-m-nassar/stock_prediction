@@ -105,7 +105,7 @@ def parse_arguments():
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
+    logging.basicConfig(file_name='data_seggregation.log' ,level=logging.INFO, format=log_fmt)
 
     logging.info("Starting data_seggregation ...")
     args = parse_arguments()
