@@ -62,7 +62,7 @@ def clean_data(df):
         pd.DataFrame: The cleaned DataFrame.
     """
     try:
-        logger.info("Cleaning data...")
+        logging.info("Cleaning data...")
         #df.set_index('Date')
         df.columns = df.columns.str.lower().str.replace(' ', '_')
 
@@ -72,10 +72,10 @@ def clean_data(df):
         df['close'] = df['close'].interpolate(method='linear', limit_direction = 'both')
         df['adj_close'] = df['adj_close'].interpolate(method='linear', limit_direction = 'both')
         df['volume'] = df['volume'].interpolate(method='linear', limit_direction = 'both')
-        logger.info("Data cleaned successfully")
+        logging.info("Data cleaned successfully")
         return df
     except Exception as e:
-        logger.error(f"Error occurred while cleaning data: {str(e)}")
+        logging.error(f"Error occurred while cleaning data: {str(e)}")
         raise ValueError(f"Failed to clean data: {str(e)}")
 
 if __name__ == "__main__":
@@ -109,5 +109,5 @@ if __name__ == "__main__":
 
         wandb.finish()
     except Exception as e:
-        logger.error(f"An error occurred: {str(e)}")
+        logging.error(f"An error occurred: {str(e)}")
         raise ValueError(f"Script execution failed: {str(e)}")
