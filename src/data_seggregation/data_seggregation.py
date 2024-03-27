@@ -78,6 +78,8 @@ def parse_arguments():
 
     return parser.parse_args()
 
+
+def segregate_data(df, split_pct):
     """
     Segregate data into training and testing datasets.
 
