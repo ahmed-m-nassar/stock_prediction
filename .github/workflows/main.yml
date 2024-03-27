@@ -1,4 +1,4 @@
-name: Run pytest on push
+name: Run pytest and push Docker image on push
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main  # Adjust to your main branch name
 
 jobs:
-  test:
+  test_and_push:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,8 +34,21 @@ jobs:
          
     - name: run unit tests
       run: |
-            eval "$(conda shell.bash hook)"
-            conda activate stock_predictor
-            conda info --envs
-            pytest unit_tests/**/*.py
-            
+        eval "$(conda shell.bash hook)"
+        conda activate stock_predictor
+        conda info --envs
+        pytest unit_tests/**/*.py
+
+
+    - name: Build Docker image
+      run: |
+        docker build -t amnassar/stock:latest .
+        docker images  # For debugging, list images
+
+    - name: Push Docker image to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        docker push amnassar/stock:latest
+
+    - name: Trigger Render Deploy
+      run: curl -X POST ${{ secrets.RENDER_HOOK }}
