@@ -42,7 +42,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t your_dockerhub_username/your_image_name:latest .
+        docker build -t amnassar/stock:latest .
         docker images  # For debugging, list images
 
     - name: Push Docker image to Docker Hub
