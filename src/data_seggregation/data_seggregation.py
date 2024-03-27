@@ -1,3 +1,48 @@
+"""
+data_seggregation.py
+
+This script segregates input data into training and testing datasets based on a specified percentage split. It then uploads the segregated data to Weights & Biases (wandb).
+
+Usage:
+    python data_seggregation.py --input_artifact <input_data_name> --train_val_pct <train_val_percentage>
+                                --train_val_output_artifact <train_val_output_data_name>
+                                --train_val_output_type <train_val_output_data_type>
+                                --train_val_output_description <train_val_output_data_description>
+                                --test_output_artifact <test_output_data_name>
+                                --test_output_type <test_output_data_type>
+                                --test_output_description <test_output_data_description>
+
+Arguments:
+    --input_artifact (str): Name of the input data artifact in Weights & Biases (wandb).
+    --train_val_pct (float): Percentage of data to be used for training, with the remainder for testing.
+    --train_val_output_artifact (str): Name of the artifact for the training and validation data output in wandb.
+    --train_val_output_type (str): Type of output data for training and validation data.
+    --train_val_output_description (str): Description of the output data for training and validation data.
+    --test_output_artifact (str): Name of the artifact for the testing data output in wandb.
+    --test_output_type (str): Type of output data for testing data.
+    --test_output_description (str): Description of the output data for testing data.
+
+    
+Execution:
+    - The script should be executed with required command-line arguments.
+    - It reads data from the specified input artifact in wandb.
+    - Segregates the data into training and testing datasets based on the specified percentage split.
+    - Saves the segregated datasets into CSV files.
+    - Uploads the segregated data to wandb with specified artifact names, types, and descriptions.
+
+Execution command example :
+python data_seggregation.py \
+    --input_artifact "input_data" \
+    --train_val_pct 0.8 \
+    --train_val_output_artifact "train_val_data" \
+    --train_val_output_type "csv" \
+    --train_val_output_description "Training and validation data" \
+    --test_output_artifact "test_data" \
+    --test_output_type "csv" \
+    --test_output_description "Testing data"
+
+"""
+
 
 
 import sys
@@ -33,7 +78,6 @@ def parse_arguments():
 
     return parser.parse_args()
 
-def segregate_data(df, split_pct):
     """
     Segregate data into training and testing datasets.
 
@@ -44,14 +88,20 @@ def segregate_data(df, split_pct):
     Returns:
         tuple: A tuple containing the training DataFrame and testing DataFrame.
     """
-    # Calculate the number of rows for training
-    num_train_rows = int(len(df) * split_pct)
+    try:
+        # Calculate the number of rows for training
+        num_train_rows = int(len(df) * split_pct)
 
-    # Split the DataFrame into training and testing
-    train_data = df.iloc[:num_train_rows]
-    test_data = df.iloc[num_train_rows:]
+        # Split the DataFrame into training and testing
+        train_data = df.iloc[:num_train_rows]
+        test_data = df.iloc[num_train_rows:]
 
-    return train_data, test_data    
+        return train_data, test_data
+    
+    except Exception as e:
+        # Log the exception
+        logging.error(f"Error occurred during data segregation: {e}")
+        raise ValueError(f"Failed to seggregate data")
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
