@@ -24,7 +24,7 @@ import hydra
 from omegaconf import DictConfig
 import json
 import uuid
-
+import wandb
 
 _steps = [
     "data_ingestion",
@@ -53,6 +53,7 @@ def go(config: DictConfig):
     # Setup the wandb experiment. All runs will be grouped under this name
     os.environ["WANDB_PROJECT"] = config["main"]["project_name"]
     os.environ["WANDB_RUN_GROUP"] = config["main"]["experiment_name"]
+    wandb.login(key = os.environ.get("WANDB_API_KEY"))
 
     # Steps to execute
     steps_par = config['main']['steps']

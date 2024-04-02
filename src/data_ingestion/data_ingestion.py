@@ -39,7 +39,7 @@ sys.path.insert(0, parent_dir)
 from src.utils.utils import upload_data_to_wandb
 
 log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-logging.basicConfig(file_name='data_ingestion.log' ,level=logging.INFO, format=log_fmt)
+logging.basicConfig(filename='data_ingestion.log' ,level=logging.INFO, format=log_fmt)
 def parse_arguments():
     """
     Parse command-line arguments.
